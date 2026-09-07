@@ -247,20 +247,15 @@
         }
 
         button.outline {
-            border-color: #888;
-            color: #888;
+            border-color: var(--text-main);
+            color: var(--text-main);
         }
 
         button.outline:hover {
-            border-color: #fff;
-            color: #fff;
+            border-color: var(--text-heading);
+            color: var(--text-heading);
             background: transparent;
             box-shadow: none;
-        }
-
-        :root[data-theme="light"] button.outline:hover {
-            border-color: #000;
-            color: #000;
         }
 
         .stats {
@@ -378,7 +373,7 @@
             margin: 0;
             box-shadow: none;
         }
-        
+
         .close-btn:hover {
             color: var(--accent-glow);
             background: transparent;
@@ -404,10 +399,10 @@
             border: 1px solid transparent;
             transition: border-color 0.2s;
         }
-        
+
         :root[data-theme="light"] .phrase-item {
             background: rgba(255, 255, 255, 0.5);
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .phrase-item:hover {
@@ -482,7 +477,13 @@
                 </label>
             </div>
             <button onclick="openModal()" class="outline" style="padding: 6px 12px; margin-left: 10px;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                    </path>
+                </svg>
                 Settings
             </button>
         </div>
@@ -572,16 +573,16 @@ Do you understand?.`
             phrasesToRemove.forEach((phrase, index) => {
                 const item = document.createElement('div');
                 item.className = 'phrase-item';
-                
+
                 const text = document.createElement('div');
                 text.className = 'phrase-text';
                 text.innerText = phrase;
                 text.title = phrase; // Tooltip for full text
-                
+
                 const delBtn = document.createElement('button');
                 delBtn.innerText = 'Delete';
                 delBtn.onclick = () => removePhrase(index);
-                
+
                 item.appendChild(text);
                 item.appendChild(delBtn);
                 listEl.appendChild(item);
